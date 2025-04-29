@@ -45,28 +45,28 @@ const plants: Plant[] = [
     imageUrl: 'https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
-    id: '6',
+    id: '7',
     name: 'ZZ Plant',
     description: 'Virtually indestructible plant with glossy leaves',
     price: 35,
     imageUrl: 'https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
-    id: '6',
+    id: '8',
     name: 'ZZ Plant',
     description: 'Virtually indestructible plant with glossy leaves',
     price: 35,
     imageUrl: 'https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
-    id: '6',
+    id: '9',
     name: 'ZZ Plant',
     description: 'Virtually indestructible plant with glossy leaves',
     price: 35,
     imageUrl: 'https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
-    id: '6',
+    id: '10',
     name: 'ZZ Plant',
     description: 'Virtually indestructible plant with glossy leaves',
     price: 35,
