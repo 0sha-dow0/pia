@@ -17,18 +17,30 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: "npm"
 
-      - name: Install dependencies
-        run: npm ci --legacy-peer-deps
-        # Using npm ci instead of npm install for more reliable installations in CI
+      - name: Install exact Vite version
+        run: npm install --no-save vite@5.4.19 @vitejs/plugin-react@4.3.1
 
-      - name: Display installed Vite version
-        run: npx vite --version
+      - name: Install remaining dependencies
+        run: npm install --prefer-offline --no-audit
+
+      - name: Use JS config instead of TS
+        run: |
+          if [ -f vite.config.ts ]; then
+            mv vite.config.ts vite.config.ts.bak
+          fi
+          cat > vite.config.js << 'EOL'
+          import { defineConfig } from 'vite';
+          import react from '@vitejs/plugin-react';
+
+          export default defineConfig({
+            plugins: [react()],
+            base: '/pia/',
+          });
+          EOL
 
       - name: Build project
-        run: npx vite build --debug
-        # Adding debug flag to get more information
+        run: npx vite build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
