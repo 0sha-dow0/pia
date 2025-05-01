@@ -17,12 +17,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
+          cache: "npm"
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
+        # Using npm ci instead of npm install for more reliable installations in CI
+
+      - name: Display installed Vite version
+        run: npx vite --version
 
       - name: Build project
-        run: npm run build
+        run: npx vite build --debug
+        # Adding debug flag to get more information
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
