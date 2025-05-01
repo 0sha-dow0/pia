@@ -6,8 +6,14 @@ const Footer = () => {
 
   return (
     <>
-      <Box as="footer" bg="neutral.100" py={6} mt={8}>
+      <Box as="footer" bg="neutral.100" py={6} mt={8}
+      // bg="#f0f4f8" // Light gray background
+      color="#243b55" // Dark blue-gray text
+      // py={4}
+      // textAlign="center"
+      borderTop="1px solid #CBD2D9">
         <Flex
+              
           maxW="container.xl"
           mx="auto"
           px={4}

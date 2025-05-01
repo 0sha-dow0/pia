@@ -24,7 +24,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const addToCart = (plant: Plant) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.plant.id === plant.id);
-      
       if (existingItem) {
         return prevItems.map((item) =>
           item.plant.id === plant.id
@@ -32,13 +31,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
             : item
         );
       }
-      
       return [...prevItems, { plant, quantity: 1 }];
     });
   };
 
   const removeFromCart = (plantId: string) => {
-    setCartItems((prevItems) => 
+    setCartItems((prevItems) =>
       prevItems.filter((item) => item.plant.id !== plantId)
     );
   };
@@ -55,11 +53,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const decreaseQuantity = (plantId: string) => {
     setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.plant.id === plantId && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      ).filter((item) => item.quantity > 0)
+      prevItems
+        .map((item) =>
+          item.plant.id === plantId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0) // Remove items with quantity 0
     );
   };
 
@@ -68,7 +68,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-  
+
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.plant.price * item.quantity,
     0
