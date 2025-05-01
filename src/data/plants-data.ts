@@ -78,6 +78,13 @@ const plants: Plant[] = [
     description: 'Virtually indestructible plant with glossy leaves',
     price: 35,
     imageUrl: 'https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+  {
+    id: '12',
+    name: 'Rattle Snake plant',
+    description: 'Virtually indestructible plant with glossy leaves',
+    price: 35,
+    imageUrl: 'https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=800'
   }
 ];
 
